@@ -12,13 +12,7 @@ var mostrarEstudiantes = function(){
         "http://localhost:3000/estudiantes.json",
 
         function(response){
-            /*
-            var plantilla = "<div class='row'>" +
-                "<div class='col-xs-6'><img src='**foto**'></div>" +
-                "<p>Nombre: **nombre**</p>" +
-                "<p>Apellido: **apellido**</p>" +
-                "<p>Edad: **edad**</p>" +
-            */
+            
             var plantilla = "<div class='row'>" +
                 "<div class='col-xs-4'><img src='**foto**' class='fotoPerfil' alt='fotoPerfil'></div>" +
                 "<div class='col-xs-5'><p class='nombrePerfil'>Nombre: **nombre**</p>" +
@@ -41,7 +35,6 @@ var mostrarEstudiantes = function(){
     )
 }
 
-
 var mostrarAcordeon = function(){
     for (var i = 0; i < $(this).length; i++) {
         //this.classList.toggle("active");
@@ -53,8 +46,9 @@ var mostrarAcordeon = function(){
 }
 
 var seleccionarPuntaje = function(){
-    $(this).toggleClass("seleccionado");
     $(this).siblings().removeClass("seleccionado");
+    $(this).addClass("seleccionado");
+    $(this).prevAll().addClass("seleccionado");
 }
 
 var mostrarPerfil = function(){
