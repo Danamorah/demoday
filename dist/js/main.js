@@ -1,7 +1,7 @@
 var cargaPag  = function (){
     mostrarEstudiantes();
     $(".accordion").click(mostrarAcordeon);
-    //$(".puntos").click(seleccionarPuntaje);
+    $(".puntos").click(seleccionarPuntaje);
     $("#estudiantes").on("click",".vermas", mostrarPerfil);
 }
 
@@ -12,6 +12,7 @@ var mostrarEstudiantes = function(){
         "http://localhost:3000/estudiantes.json",
 
         function(response){
+
             var plantilla = "<div class='row'>" +
                 "<div class='col-xs-4'><img src='**foto**' class='fotoPerfil' alt='fotoPerfil'></div>" +
                 "<div class='col-xs-5'><p class='nombrePerfil'>**nombre** **apellido**</p>" +
@@ -33,13 +34,6 @@ var mostrarEstudiantes = function(){
     )
 }
 
-/*
-$("i").click(function(){
-    $(this).prevAll().toggleClass("seleccionado");
-});
-*/
-
-
 var mostrarAcordeon = function(){
     for (var i = 0; i < $(this).length; i++) {
         //this.classList.toggle("active");
@@ -49,17 +43,13 @@ var mostrarAcordeon = function(){
         });
     }
 }
-/*
-var seleccionarPuntaje = function(){
-    $(this).prevAll().toggleClass("seleccionado");
-    //$(this).siblings().removeClass("seleccionado");
-}
-*/
-/*
-    $( ".accordion" ).click(function() {
 
-    });
-*/
+var seleccionarPuntaje = function(){
+    $(this).siblings().removeClass("seleccionado");
+    $(this).addClass("seleccionado");
+    $(this).prevAll().addClass("seleccionado");
+}
+
 var mostrarPerfil = function(){
     var indice = $(this).attr("data");
     $(location).attr("href","http://localhost:3000/perfil.html" + "?data=" + indice);
