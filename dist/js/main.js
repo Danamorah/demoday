@@ -1,7 +1,7 @@
 var cargaPag  = function (){
     mostrarEstudiantes();
     $(".accordion").click(mostrarAcordeon);
-    $(".puntos").click(seleccionarPuntaje);
+    //$(".puntos").click(seleccionarPuntaje);
     $("#estudiantes").on("click",".vermas", mostrarPerfil);
 }
 
@@ -33,6 +33,12 @@ var mostrarEstudiantes = function(){
     )
 }
 
+/*
+$("i").click(function(){
+    $(this).prevAll().toggleClass("seleccionado");
+});
+*/
+
 
 var mostrarAcordeon = function(){
     for (var i = 0; i < $(this).length; i++) {
@@ -43,12 +49,12 @@ var mostrarAcordeon = function(){
         });
     }
 }
-
+/*
 var seleccionarPuntaje = function(){
-    $(this).toggleClass("seleccionado");
-    $(this).siblings().removeClass("seleccionado");
+    $(this).prevAll().toggleClass("seleccionado");
+    //$(this).siblings().removeClass("seleccionado");
 }
-
+*/
 /*
     $( ".accordion" ).click(function() {
 
